@@ -3,13 +3,13 @@ FROM oven/bun:1 AS base
 # Install dependencies
 FROM base AS deps
 WORKDIR /app
-COPY package.json bun.lockb ./
+COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 
 # Build frontend
 FROM deps AS frontend-builder
 WORKDIR /app/frontend
-COPY frontend/package.json frontend/bun.lockb ./
+COPY frontend/package.json frontend/bun.lock ./
 RUN bun install --frozen-lockfile
 COPY frontend/ .
 RUN bun run build
@@ -18,7 +18,7 @@ RUN bun run build
 FROM base AS runner
 WORKDIR /app
 
-COPY package.json bun.lockb ./
+COPY package.json bun.lock ./
 COPY --from=deps /app/node_modules ./node_modules
 
 COPY src/ ./src/
