@@ -1,0 +1,9 @@
+node_modules
+dist
+public
+.git
+.gitignore
+*.md
+CLAUDE.md
+frontend/node_modules
+frontend/dist

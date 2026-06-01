@@ -1,0 +1,21 @@
+{
+  "name": "hoshi-sui-fan-site",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "build:frontend": "cd frontend && bun run build",
+    "build": "bun run build:frontend && bun build src/index.ts --outdir=dist --target=bun",
+    "start": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.4.2",
+    "@elysiajs/static": "^1.4.10",
+    "elysia": "^1.4.28",
+    "postgres": "^3.4.9"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}

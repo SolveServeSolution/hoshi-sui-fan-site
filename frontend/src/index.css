@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-hoshi-cyan: #00C8FF;
+  --color-hoshi-blue: #4A9EFF;
+  --color-hoshi-dark: #0a1628;
+  --color-hoshi-darker: #060e1a;
+  --color-hoshi-card: #111d32;
+  --color-hoshi-border: #1e3050;
+  --color-hoshi-star: #FFD700;
+  --color-hoshi-pink: #FF6B9D;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-hoshi-darker);
+  color: #e2e8f0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Star field animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes comet-trail {
+  0% { transform: translateX(-100%) translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateX(200vw) translateY(200vh); opacity: 0; }
+}
+
+.star {
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.comet-particle {
+  animation: comet-trail 4s linear infinite;
+  animation-delay: var(--delay, 0s);
+}
